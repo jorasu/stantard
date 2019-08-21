@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kgc.dao.StandardMapper">
+      <select id="query" resultType="map">
+          SELECT * FROM standard
+          <where>
+              <if test="title!='' and title!=null">
+                  zhName like concat('%',#{title},'%')
+                  or  stdNum like concat('%',#{title},'%')
+              </if>
+          </where>
+      </select>
+
+    <select id="queryById" resultType="map">
+        SELECT  * FROM standard WHERE  id=#{id}
+    </select>
+
+    <select id="queryByNum" resultType="map">
+        SELECT  * FROM standard WHERE  stdNum=#{stdnum}
+    </select>
+
+    <insert id="add">
+        INSERT INTO  standard(stdNum, zhName, version, `keys`, releaseDate, implDate)
+          VALUES (#{stdnum},#{zhname},#{version},#{keys},#{releasedate},#{impldate})
+    </insert>
+
+    <update id="update">
+        UPDATE standard SET stdNum=#{stdnum}, zhName=#{zhname}, version=#{version}, `keys`=#{keys},
+            releaseDate=#{releasedate}, implDate=#{impldate} WHERE id=#{id}
+    </update>
+
+    <delete id="del">
+        DELETE  FROM  standard WHERE id=#{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改</title>
+</head>
+<body>
+     <h3>修改标准信息</h3>
+     <form method="post" id="updateForm">
+         <input type="hidden" id="id" name="id">
+         <p>标准号：<input type="text" id="stdnum" name="stdnum"></p>
+         <p>中文名称：<input type="text" id="zhname" name="zhname"></p>
+         <p>版本：<input type="text" id="version" name="version"></p>
+         <p>关键字/词：<input type="text" id="keys" name="keys"></p>
+         <p>发布日期：<input type="date" id="releasedate" name="releasedate"></p>
+         <p>实施日期：<input type="date" id="impldate" name="impldate"></p>
+         <p>
+             <input type="button" onclick="save()" value="保存">
+             <input type="button" onclick="javascript:history.back(-1)" value="取消">
+         </p>
+     </form>
+
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/query.js"></script>
+</html>
